@@ -18,4 +18,26 @@ getCurrentTime('london');
 getCurrentWind('london');
 getFeelsLike('london');
 getHumidity('london');
-getMoonPhase('london')
+getMoonPhase('london');
+
+const sliderPast = document.getElementById('past');
+const sliderPresent = document.getElementById('present');
+const sliderFuture = document.getElementById('future');
+
+sliderPast.addEventListener('click', () => {
+  sliderPresent.classList.remove('selected');
+  sliderFuture.classList.remove('selected');
+  sliderPast.classList.add('selected');
+});
+
+sliderPresent.addEventListener('click', () => {
+  sliderPresent.classList.add('selected');
+  sliderFuture.classList.remove('selected');
+  sliderPast.classList.remove('selected');
+});
+
+sliderFuture.addEventListener('click', () => {
+  sliderPresent.classList.remove('selected');
+  sliderFuture.classList.add('selected');
+  sliderPast.classList.remove('selected');
+});
