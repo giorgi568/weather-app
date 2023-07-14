@@ -44,7 +44,9 @@ form{
 }
 .search_container{
   min-height: 5%;
+  width: 70%;
   display: flex;
+  justify-content: center;
 }
 .btn_container{
   min-height: 5%;
@@ -58,6 +60,16 @@ form{
 }
 .main_content{
   min-height: 70%;
+  width: 70%;
+  display: grid;
+  grid-template-columns: 30% 70%;
+  grid-template-rows: 10% 80%;
+  justify-content: center;
+  /* align-items: center; */
+  background-color: grey;
+  border-radius: 35px;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 .slider{
   background-color: white;
@@ -70,4 +82,36 @@ form{
 }
 .selected{
   background-color: grey;
+  color: white;
+}
+
+.icon-main{
+  height: 50%;
+  width: 100%;
+  background-color: black;
+  justify-self: center;
+  align-self: center;
+}
+.stats-main{
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  /* background-color: red; */
+  border: 1px solid red;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(2, auto);
+  justify-items: center;
+  align-items: center;
+  
+}
+.simple-header{
+  grid-column-start: span 2;
+  justify-self: center;
+  align-self: center;
+  font-size:x-large;
+  font-weight: 600;
+}
+.cell{
+  padding: 15px;
 }
