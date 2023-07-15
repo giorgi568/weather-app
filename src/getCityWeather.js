@@ -78,11 +78,20 @@ async function getMoonPhase(city) {
   const currentWeather = await response.json();
   const moonPhase = currentWeather.astronomy.astro.moon_phase;
 
-  console.log(moonPhase);
+  console.log(currentWeather);
   return moonPhase;
 }
 
+async function getIcon(city){
+  const apiKey = 'fc78ef90a1c34ac1b67144641231107';
+  const tag = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
 
+  const response = await fetch(tag, { mode: 'cors' });
+  const currentWeather = await response.json();
+  const icon = currentWeather.current.condition.icon;
+
+  return icon;
+}
 export {
   getCurrentTemp,
   getCurrentCondition,
@@ -90,5 +99,6 @@ export {
   getCurrentWind,
   getFeelsLike,
   getHumidity,
-  getMoonPhase
+  getMoonPhase,
+  getIcon
 };

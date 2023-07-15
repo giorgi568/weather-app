@@ -8,17 +8,18 @@ import {
   getHumidity,
   getMoonPhase,
 } from './getCityWeather';
+import { populateCurrent } from './populateCurrent';
 
-getCurrentTemp('london').catch(function (err) {
-  console.log(err);
-});
+// getCurrentTemp('london').catch(function (err) {
+//   console.log(err);
+// });
 
-getCurrentCondition('london');
-getCurrentTime('london');
-getCurrentWind('london');
-getFeelsLike('london');
-getHumidity('london');
-getMoonPhase('london');
+// getCurrentCondition('london');
+// getCurrentTime('london');
+// getCurrentWind('london');
+// getFeelsLike('london');
+// getHumidity('london');
+// getMoonPhase('london');
 
 const sliderPast = document.getElementById('past');
 const sliderPresent = document.getElementById('present');
@@ -41,3 +42,5 @@ sliderFuture.addEventListener('click', () => {
   sliderFuture.classList.add('selected');
   sliderPast.classList.remove('selected');
 });
+
+populateCurrent('tokyo');
