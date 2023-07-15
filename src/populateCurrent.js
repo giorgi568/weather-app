@@ -27,7 +27,7 @@ async function populateCurrent(city) {
   iconMain.classList.add('icon-main');
   const icon = await getIcon(city);
   const iconUrl = `url('${icon}')`;
-  console.log(iconUrl);
+  // console.log(iconUrl);
   iconMain.style.backgroundImage = iconUrl;
   mainContent.appendChild(iconMain);
 

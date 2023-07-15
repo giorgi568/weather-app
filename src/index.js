@@ -9,7 +9,9 @@ import {
   getMoonPhase,
 } from './getCityWeather';
 import { populateCurrent } from './populateCurrent';
-import { getPastWeather } from './PastWeather';
+import { getPastWeather } from './pastWeather';
+import { getFutureWeather } from './futureWeather';
+import { populatePast } from './populatePast';
 
 // getCurrentTemp('london').catch(function (err) {
 //   console.log(err);
@@ -45,6 +47,15 @@ sliderFuture.addEventListener('click', () => {
 });
 
 // populateCurrent('tbilisi');
-getPastWeather('london').catch((err)=> {
-  console.log(err)
-})
+
+// getPastWeather('london', 3).catch((err)=> {
+//   console.log(err)
+// });
+
+// getFutureWeather('london', 3).catch((err) => {
+//   console.log(err);
+// });
+
+populatePast('london').catch((err) => {
+  console.log(err);
+});
