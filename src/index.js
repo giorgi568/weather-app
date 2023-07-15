@@ -9,6 +9,7 @@ import {
   getMoonPhase,
 } from './getCityWeather';
 import { populateCurrent } from './populateCurrent';
+import { getPastWeather } from './PastWeather';
 
 // getCurrentTemp('london').catch(function (err) {
 //   console.log(err);
@@ -43,4 +44,7 @@ sliderFuture.addEventListener('click', () => {
   sliderPast.classList.remove('selected');
 });
 
-populateCurrent('tokyo');
+// populateCurrent('tbilisi');
+getPastWeather('london').catch((err)=> {
+  console.log(err)
+})
