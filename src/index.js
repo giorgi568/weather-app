@@ -12,6 +12,7 @@ import { populateCurrent } from './populateCurrent';
 import { getPastWeather } from './pastWeather';
 import { getFutureWeather } from './futureWeather';
 import { populatePast } from './populatePast';
+import { populateFuture } from './populateFuture';
 
 // getCurrentTemp('london').catch(function (err) {
 //   console.log(err);
@@ -56,6 +57,29 @@ sliderFuture.addEventListener('click', () => {
 //   console.log(err);
 // });
 
-populatePast('london').catch((err) => {
-  console.log(err);
-});
+// populatePast('london').catch((err) => {
+//   console.log(err);
+// });
+
+// populateFuture('london').catch((err) => {
+//   console.log(err);
+// });
+
+const searchForm = document.getElementById('form');
+const searchBtn = document.getElementById('btn');
+// searchBtn.addEventListener('click',)
+
+window.onload = () => {
+  searchBtn.onclick = (e) => {
+    e.preventDefault();
+    const searchedValue = document.getElementById('search_box').value;
+
+    // const mainContent = document.getElementById('main_content');
+    // mainContent.classList.remove('main_content');
+
+    populateCurrent(searchedValue);
+  };
+};
+
+// populateCurrent('london');
+// populateCurrent('tbilisi');

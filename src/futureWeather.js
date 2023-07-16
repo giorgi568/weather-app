@@ -29,6 +29,9 @@ async function getFutureWeather(city, num) {
   const temp = historyWeather.forecast.forecastday[0].day.avgtemp_c;
   dayArr.temp = temp;
 
+  const icon = historyWeather.forecast.forecastday[0].day.condition.icon
+  dayArr.icon = icon
+
   console.log(dayArr);
   return dayArr;
 }
