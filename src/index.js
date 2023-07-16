@@ -53,7 +53,11 @@ window.onload = () => {
     e.preventDefault();
     const searchedValue = document.getElementById('search_box').value;
     localStorage.setItem('city', searchedValue);
-    populateCurrent(searchedValue);
+    populateCurrent(searchedValue)
+    .catch((err) =>{
+      console.log(err);
+      displayError();
+    })
 
     sliderPresent.classList.add('selected');
     sliderFuture.classList.remove('selected');
@@ -66,9 +70,17 @@ window.onload = () => {
 // populateCurrent('london');
 // populateCurrent('tbilisi');
 if (!localStorage.getItem('city')) {
-  populateCurrent('london');
+  populateCurrent('london')
+  .catch((err) =>{
+    console.log(err);
+    displayError();
+  })
 } else {
-  populateCurrent(localStorage.getItem('city'));
+  populateCurrent(localStorage.getItem('city'))
+  .catch((err) =>{
+    console.log(err);
+    displayError();
+  })
 }
 
 const sliderPast = document.getElementById('past');
@@ -80,7 +92,11 @@ sliderPast.addEventListener('click', () => {
   sliderFuture.classList.remove('selected');
   sliderPast.classList.add('selected');
 
-  populatePast(localStorage.getItem('city'));
+  populatePast(localStorage.getItem('city'))
+  .catch((err) =>{
+    console.log(err);
+    displayError();
+  })
 });
 
 sliderPresent.addEventListener('click', () => {
@@ -88,7 +104,11 @@ sliderPresent.addEventListener('click', () => {
   sliderFuture.classList.remove('selected');
   sliderPast.classList.remove('selected');
 
-  populateCurrent(localStorage.getItem('city'));
+  populateCurrent(localStorage.getItem('city'))
+  .catch((err) =>{
+    console.log(err);
+    displayError();
+  })
 });
 
 sliderFuture.addEventListener('click', () => {
@@ -96,7 +116,11 @@ sliderFuture.addEventListener('click', () => {
   sliderFuture.classList.add('selected');
   sliderPast.classList.remove('selected');
 
-  populateFuture(localStorage.getItem('city'));
+  populateFuture(localStorage.getItem('city'))
+  .catch((err) =>{
+    console.log(err);
+    displayError();
+  })
 });
 
 // const client = createClient(
@@ -110,3 +134,11 @@ sliderFuture.addEventListener('click', () => {
 //   // console.log(photos.photos[0].src.landscape);
 // });
 setBackgroundPhoto();
+
+
+function displayError() {
+  const mainContent = document.getElementById('main_content');
+  mainContent.textContent =
+    'Sorry, No Data Found :( (Check If City Name You Entered Is Correct)';
+  mainContent.classList.add('err')
+}

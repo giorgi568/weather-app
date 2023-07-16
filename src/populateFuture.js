@@ -1,11 +1,13 @@
-import { getFutureWeather } from "./futureWeather";
-import { makeWeatherBlock } from "./makeWeatherBlock";
+import { getFutureWeather } from './futureWeather';
+import { makeWeatherBlock } from './makeWeatherBlock';
 
 async function populateFuture(city) {
   const futureWeather = document.getElementById('main_content');
   futureWeather.textContent = '';
   futureWeather.innerHTML = '';
   futureWeather.classList.add('block-weather');
+  futureWeather.classList.remove('err');
+  futureWeather.classList.add('main_content');
 
   const day1Data = await getFutureWeather(city, 3);
   const day2Data = await getFutureWeather(city, 2);
@@ -15,4 +17,4 @@ async function populateFuture(city) {
   makeWeatherBlock(day2Data);
   makeWeatherBlock(day1Data);
 }
-export {populateFuture}
+export { populateFuture };
