@@ -15,6 +15,7 @@ async function populateCurrent(city) {
   mainContent.textContent = '';
   mainContent.innerHTML = '';
   mainContent.classList.add('main_content');
+  mainContent.classList.remove('block-weather')
   // mainContent.classList.add('transitioned');
 
   const simpleHeader = document.createElement('div');

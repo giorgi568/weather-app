@@ -13,6 +13,7 @@ import { getPastWeather } from './pastWeather';
 import { getFutureWeather } from './futureWeather';
 import { populatePast } from './populatePast';
 import { populateFuture } from './populateFuture';
+import { setBackgroundPhoto } from './setBackgroundPhoto';
 
 // getCurrentTemp('london').catch(function (err) {
 //   console.log(err);
@@ -24,28 +25,6 @@ import { populateFuture } from './populateFuture';
 // getFeelsLike('london');
 // getHumidity('london');
 // getMoonPhase('london');
-
-const sliderPast = document.getElementById('past');
-const sliderPresent = document.getElementById('present');
-const sliderFuture = document.getElementById('future');
-
-sliderPast.addEventListener('click', () => {
-  sliderPresent.classList.remove('selected');
-  sliderFuture.classList.remove('selected');
-  sliderPast.classList.add('selected');
-});
-
-sliderPresent.addEventListener('click', () => {
-  sliderPresent.classList.add('selected');
-  sliderFuture.classList.remove('selected');
-  sliderPast.classList.remove('selected');
-});
-
-sliderFuture.addEventListener('click', () => {
-  sliderPresent.classList.remove('selected');
-  sliderFuture.classList.add('selected');
-  sliderPast.classList.remove('selected');
-});
 
 // populateCurrent('tbilisi');
 
@@ -73,13 +52,61 @@ window.onload = () => {
   searchBtn.onclick = (e) => {
     e.preventDefault();
     const searchedValue = document.getElementById('search_box').value;
-
-    // const mainContent = document.getElementById('main_content');
-    // mainContent.classList.remove('main_content');
-
+    localStorage.setItem('city', searchedValue);
     populateCurrent(searchedValue);
+
+    sliderPresent.classList.add('selected');
+    sliderFuture.classList.remove('selected');
+    sliderPast.classList.remove('selected');
+
+    setBackgroundPhoto();
   };
 };
 
 // populateCurrent('london');
 // populateCurrent('tbilisi');
+if (!localStorage.getItem('city')) {
+  populateCurrent('london');
+} else {
+  populateCurrent(localStorage.getItem('city'));
+}
+
+const sliderPast = document.getElementById('past');
+const sliderPresent = document.getElementById('present');
+const sliderFuture = document.getElementById('future');
+
+sliderPast.addEventListener('click', () => {
+  sliderPresent.classList.remove('selected');
+  sliderFuture.classList.remove('selected');
+  sliderPast.classList.add('selected');
+
+  populatePast(localStorage.getItem('city'));
+});
+
+sliderPresent.addEventListener('click', () => {
+  sliderPresent.classList.add('selected');
+  sliderFuture.classList.remove('selected');
+  sliderPast.classList.remove('selected');
+
+  populateCurrent(localStorage.getItem('city'));
+});
+
+sliderFuture.addEventListener('click', () => {
+  sliderPresent.classList.remove('selected');
+  sliderFuture.classList.add('selected');
+  sliderPast.classList.remove('selected');
+
+  populateFuture(localStorage.getItem('city'));
+});
+
+// const client = createClient(
+//   'wD8qsuf1WHFi4fT9RDQspOOpXHcRliLiLiQrv5Y6MyqkIPYhmIbvZOVX'
+// );
+// const query = `${localStorage.getItem('city')}`;
+// client.photos.search({ query, per_page: 1, mode: 'cors' }).then((photos) => {
+//   const bg = document.getElementById('content');
+//   const iconUrl = `url('${photos.photos[0].src.landscape}')`;
+//   bg.style.backgroundImage = iconUrl
+//   // console.log(photos.photos[0].src.landscape);
+// });
+setBackgroundPhoto();
