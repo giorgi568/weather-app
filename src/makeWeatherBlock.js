@@ -21,11 +21,13 @@ function makeWeatherBlock(dataArr) {
 
   const wind = document.createElement('div');
   wind.textContent = `Wind(max): ${dataArr.wind}km/h`;
+  wind.style.textAlign = 'center';
   day.appendChild(wind);
 
   const condition = document.createElement('div');
   condition.textContent = dataArr.condition;
   day.appendChild(condition);
+  condition.style.textAlign = 'center';
 }
 
-export {makeWeatherBlock}
+export { makeWeatherBlock };

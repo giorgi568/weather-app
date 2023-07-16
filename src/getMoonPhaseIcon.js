@@ -5,7 +5,7 @@ function getMoonPhaseIcon(phase){
     'http://www.w3.org/2000/svg',
     'path'
   );
-  moonSvg.setAttribute('fill', 'black');
+  moonSvg.setAttribute('fill', 'white');
   moonSvg.setAttribute('viewBox', '0 0 20 16');
   moonSvg.setAttribute('width', '60');
   moonSvg.setAttribute('height', '60');
