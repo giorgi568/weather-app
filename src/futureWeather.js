@@ -32,7 +32,7 @@ async function getFutureWeather(city, num) {
   const icon = historyWeather.forecast.forecastday[0].day.condition.icon
   dayArr.icon = icon
 
-  console.log(dayArr);
+  // console.log(dayArr);
   return dayArr;
 }
 
