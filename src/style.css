@@ -21,7 +21,7 @@ body{
 
   background-repeat: no-repeat;
   background-size:cover;
-  background-position: center;
+  background-position:bottom;
 }
 
 input{
@@ -76,7 +76,7 @@ form{
   min-height: 350px;
   height: 350px;
   width: 50%;
-  min-width: 400px;
+  min-width: 450px;
   display: grid;
   grid-template-columns: 15% 85%;
   grid-template-rows: 20% 70%;
@@ -95,6 +95,8 @@ form{
   animation-timing-function: ease-in-out;
 
   cursor: pointer;
+
+  padding-bottom: 60px;
 }
 
 .main_content:hover{
@@ -155,8 +157,8 @@ form{
 }
 
 .block-weather{
-  /* transition: all 0.8s;
-  transition-timing-function: ease-in-out; */
+  transition: all 0.8s;
+  transition-timing-function: ease-in-out;
 
   height: 200px;
   min-height: 300px;
@@ -220,7 +222,7 @@ svg:hover{
 }
 
 footer{
-  background-color: rgb(2, 6, 23, 0.8);
+  background-color: rgb(2, 6, 23, 0.5);
   /* position: fixed; */
   /* bottom: 0; */
   width: 100%;
@@ -234,4 +236,14 @@ footer{
 }
 a{
   color: #eab308;
+}
+.photographer{
+  background-color: rgb(2, 6, 23, 0.5);
+  position: absolute;
+  left: 2%;
+  top: 3%;
+  padding: 5px;
+  border-radius: 6px;
+  color: white;
+  opacity: 0.5;
 }

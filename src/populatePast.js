@@ -7,7 +7,7 @@ async function populatePast(city) {
   pastWeather.innerHTML = '';
   pastWeather.classList.add('block-weather');
   pastWeather.classList.remove('err');
-  pastWeather.classList.add('main_content');
+  pastWeather.classList.remove('main_content');
   // pastWeather.classList.add('transitioned');
 
   const day1Data = await getPastWeather(city, 3);

@@ -7,7 +7,7 @@ async function populateFuture(city) {
   futureWeather.innerHTML = '';
   futureWeather.classList.add('block-weather');
   futureWeather.classList.remove('err');
-  futureWeather.classList.add('main_content');
+  futureWeather.classList.remove('main_content');
 
   const day1Data = await getFutureWeather(city, 3);
   const day2Data = await getFutureWeather(city, 2);
