@@ -7,6 +7,7 @@ import {
   getHumidity,
   getMoonPhase,
   getIcon,
+  getLocation
 } from './getCityWeather';
 import { getMoonPhaseIcon } from './getMoonPhaseIcon';
 
@@ -22,7 +23,8 @@ async function populateCurrent(city) {
   const simpleHeader = document.createElement('div');
   simpleHeader.classList.add('simple-header');
   const currentTemp = await getCurrentTemp(city);
-  simpleHeader.textContent = `${city.toUpperCase()} ${currentTemp}°C`;
+  const location = await getLocation(city)
+  simpleHeader.textContent = `${location.toUpperCase()} ${currentTemp}°C`;
   mainContent.appendChild(simpleHeader);
 
   const iconMain = document.createElement('div');

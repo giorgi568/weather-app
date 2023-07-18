@@ -10,7 +10,7 @@ function setBackgroundPhoto() {
   client.photos
     .search({ query, per_page: 1, mode: 'cors' })
     .then((photos) => {
-      console.log(photos);
+      // console.log(photos);
       const iconUrl = `url('${photos.photos[0].src.landscape}')`;
       bg.style.backgroundImage = iconUrl;
       photographer.textContent = `Photograph by ${photos.photos[0].photographer}`;

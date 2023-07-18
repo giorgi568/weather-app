@@ -82,7 +82,7 @@ async function getMoonPhase(city) {
   return moonPhase;
 }
 
-async function getIcon(city){
+async function getIcon(city) {
   const apiKey = 'fc78ef90a1c34ac1b67144641231107';
   const tag = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
 
@@ -92,6 +92,19 @@ async function getIcon(city){
 
   return icon;
 }
+
+async function getLocation(city) {
+  const apiKey = 'fc78ef90a1c34ac1b67144641231107';
+  const tag = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
+
+  const response = await fetch(tag, { mode: 'cors' });
+  const currentWeather = await response.json();
+  const location = `${currentWeather.location.name}, ${currentWeather.location.country}`;
+  
+  // console.log(location);
+  return location
+}
+
 export {
   getCurrentTemp,
   getCurrentCondition,
@@ -100,5 +113,6 @@ export {
   getFeelsLike,
   getHumidity,
   getMoonPhase,
-  getIcon
+  getIcon,
+  getLocation
 };
