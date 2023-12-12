@@ -6,7 +6,7 @@ function setBackgroundPhoto() {
   const client = createClient(
     'wD8qsuf1WHFi4fT9RDQspOOpXHcRliLiLiQrv5Y6MyqkIPYhmIbvZOVX'
   );
-  const query = `${localStorage.getItem('city')}`;
+  const query = `${localStorage.getItem('city')} city, Architecture`;
   client.photos
     .search({ query, per_page: 1, mode: 'cors' })
     .then((photos) => {
